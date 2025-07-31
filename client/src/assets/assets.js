@@ -46,33 +46,22 @@ import hero_3 from './preview (2).webp'
 import hero_4 from './preview (3).webp'
 import Car1 from './Car3.jpg'
 import Car2 from './Car4.jpg'
-import Car3 from './Car5.jpg'
 import Car4 from './Car6.jpg'
-import Car5 from './Car7.jpg'
 import Car6 from './Car8.jpg'
-import Car7 from './Car9.jpg'
 import Car8 from './Car10.jpg'
-import Car9 from './Car11.jpg'
 import Bike1 from './Bike4.jpg'
-import Bike2 from './Bike5.jpg'
 import Bike3 from './Bike7.jpg'
-import Bike4 from './Bike8.jpg'
-import Bike5 from './Bike9.jpg'
 import Bike6 from './Bike10.jpg'
 import Bike7 from './Bike11.jpg'
-import Bike8 from './Bike12.jpg'
-import RideFlex from './RideFlex.png'
 import Favicon from './favicon.svg'
 
 export const cityList = ['Nanded', 'Hydrabad', 'Pune', 'Mumbai']
 
 export const assets = {
     logo,
-    RideFlex,
     Favicon,
-    Car1,
-    Car2,Car3,Car4,Car5,Car6,Car7,Car8,Car9,
-    Bike1,Bike2,Bike3,Bike4,Bike5,Bike6,Bike7,Bike8,
+    Car1,Car2,Car4,Car6,Car8,
+    Bike1,Bike3,Bike6,Bike7,
     hero_1,
     hero_2,
     hero_3,
