@@ -64,7 +64,7 @@ const Slider = () => {
             <img
               src={img}
               alt={`Thumb ${index + 1}`}
-              className="w-full h-[20px] sm:h-[60px] object-cover object-center rounded-md cursor-pointer border border-text-muted hover:border-blue-500 transition"
+              className="w-full h-[20px] sm:h-[60px] object-cover object-center rounded-sm cursor-pointer border border-text-muted hover:border-blue-500 transition"
             />
           </SwiperSlide>
         ))}

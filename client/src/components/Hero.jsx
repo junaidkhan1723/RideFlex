@@ -7,7 +7,7 @@ const Hero = () => {
   const [pickupLocation, setPickupLocation] = useState('');
 
   return (
-    <div className='h-screen flex flex-col items-center justify-center gap-2 sm:gap-14 bg-bg-dark text-center'>
+    <div className=' flex flex-col items-center justify-center gap-4 sm:gap-14 bg-bg-dark text-center'>
 
       {/** Main Heading */}
       <h1 className='text-4xl md:text-5xl font-semibold'>Find and Rent Your Pefect Car & Bike </h1>
@@ -41,14 +41,13 @@ const Hero = () => {
            <input type="date" id="pickup-date" min={new Date().toISOString().split('T')[0]} 
            className='text-sm text-text-muted' required />
           </div>
-
-      {/** Search btn*/}
+        </div>
+         {/** Search btn*/}
           <button className=' flex items-center justify-center gap-1 cursor-pointer px-9 py-3 max-sm:mt-4 bg-primary hover:bg-info transition-all 
             rounded-full text-white text-shadow-lg'>
             <img src={assets.search_icon} alt="search" className='brightness-300' />
             Search
             </button>
-        </div>
       </form>
 
       {/** Slider */}      
