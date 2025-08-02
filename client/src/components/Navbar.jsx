@@ -115,24 +115,28 @@ const Navbar = ({ isLightMode, setIsLightMode, setShowLogin }) => {
             </button>
           </div>
 
-       {/* Mobile Menu Toggle Button */}
-{!open ? (
-  <button
-    className="sm:hidden cursor-pointer"
-    aria-label="Open Menu"
-    onClick={() => setOpen(true)}
-  >
-    <img src={assets.menu_icon} alt="menu" />
-  </button>
-) : (
-  <button
-    className="sm:hidden cursor-pointer"
-    aria-label="Close Menu"
-    onClick={() => setOpen(false)}
-  >
-    <img src={assets.close_icon} alt="close" />
-  </button>
-)}
+{/* Animated Hamburger Menu Icon */}
+<button
+  className="relative w-8 h-6 flex flex-col justify-between items-center sm:hidden z-[999] cursor-pointer"
+  aria-label="Toggle Menu"
+  onClick={() => setOpen(!open)}
+>
+  <span
+    className={`block h-0.5 w-full bg-text transition-transform duration-300 ease-in-out ${
+      open ? 'transform rotate-45 translate-y-2' : ''
+    }`}
+  ></span>
+  <span
+    className={`block h-0.5 w-full bg-text transition-all duration-300 ease-in-out ${
+      open ? 'opacity-0' : 'opacity-100'
+    }`}
+  ></span>
+  <span
+    className={`block h-0.5 w-full bg-text transition-transform duration-300 ease-in-out ${
+      open ? 'transform -rotate-45 -translate-y-2' : ''
+    }`}
+  ></span>
+</button>
         </div>
       </div>
 
