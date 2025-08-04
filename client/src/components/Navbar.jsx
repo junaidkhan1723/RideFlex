@@ -23,10 +23,19 @@ const Navbar = ({ isLightMode, setIsLightMode, setShowLogin }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }, [open])
+
+  const isActive = (path) => location.pathname === path
+
   return (
     <>
       <div className="relative flex items-center justify-between mb-2 px-6 md:px-16 lg:px-24 xl:px-32 py-4 bg-bg-dark text-text border-b border-border-muted transition-all z-50">
-        {/* Logo */}
         <span className='flex cursor-pointer'>
           <img src={assets.Favicon} alt="logo" className="sm:h-8 h-5 mt-1" />
           <span className='text-xl sm:text-3xl font-semibold ms-2 cursor-pointer'>
@@ -34,7 +43,6 @@ const Navbar = ({ isLightMode, setIsLightMode, setShowLogin }) => {
           </span>
         </span>
 
-        {/* Desktop Nav Links */}
         <div className="hidden sm:flex items-center gap-8">
           {menuLinks.map((link, index) => (
             <Link
@@ -67,7 +75,6 @@ const Navbar = ({ isLightMode, setIsLightMode, setShowLogin }) => {
           </button>
         </div>
 
-        {/* Hamburger Icon */}
         <button
           className={`sm:hidden flex flex-col justify-between w-7 h-6 z-[999] transition-all duration-300 ${open ? 'open' : ''}`}
           aria-label='Menu'
@@ -78,7 +85,6 @@ const Navbar = ({ isLightMode, setIsLightMode, setShowLogin }) => {
           <span className="block h-0.5 bg-text transition-all duration-300 ease-in-out"></span>
         </button>
 
-        {/* Mobile Fullscreen Overlay Menu */}
         <div
           className={`fixed top-0 right-0 h-full w-full bg-bg-dark/80 backdrop-blur-xl transition-transform duration-300 ease-in-out flex flex-col justify-center items-center z-50 ${
             open ? 'translate-x-0' : 'translate-x-full'
@@ -124,21 +130,20 @@ const Navbar = ({ isLightMode, setIsLightMode, setShowLogin }) => {
         </div>
       </div>
 
-      {/* Floating Bottom Navigation Bar (Mobile Only) */}
       <div className={`sm:hidden fixed bottom-0 left-0 right-0 flex justify-around items-center bg-bg-dark text-text border-t border-border-muted py-3 z-40 transition-transform duration-300 ${showBottomNav ? 'translate-y-0' : 'translate-y-full'}`}>
-        <Link to="/" className="flex flex-col items-center text-sm">
+        <Link to="/" className={`flex flex-col items-center text-sm ${isActive('/') ? 'text-primary translate-y-[-4px]' : ''}`}>
           <i className="bi bi-house-door-fill text-xl"></i>
           Home
         </Link>
-        <Link to="/explore" className="flex flex-col items-center text-sm">
+        <Link to="/explore" className={`flex flex-col items-center text-sm ${isActive('/explore') ? 'text-primary translate-y-[-4px]' : ''}`}>
           <i className="bi bi-search text-xl"></i>
           Explore
         </Link>
-        <button onClick={() => navigate('/bookings')} className="flex flex-col items-center text-sm">
+        <button onClick={() => navigate('/bookings')} className={`flex flex-col items-center text-sm ${isActive('/bookings') ? 'text-primary translate-y-[-4px]' : ''}`}>
           <i className="bi bi-calendar-check text-xl"></i>
           My Bookings
         </button>
-        <button onClick={() => navigate('/owner')} className="flex flex-col items-center text-sm">
+        <button onClick={() => navigate('/owner')} className={`flex flex-col items-center text-sm ${isActive('/owner') ? 'text-primary translate-y-[-4px]' : ''}`}>
           <i className="bi bi-person-circle text-xl"></i>
           Profile
         </button>
