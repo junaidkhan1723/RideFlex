@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import CarDetails from './pages/CarDetails'
 import Cars from './pages/Cars'
 import MyBookings from './pages/MyBookings'
+import Footer from './components/Footer'
 
 const App = () => {
   const [isLightMode, setIsLightMode] = useState(true)
@@ -42,6 +43,8 @@ const App = () => {
         <Route path="/cars" element={<Cars />} />
         <Route path="/my-bookings" element={<MyBookings />} />
       </Routes>
+
+     {!isOwerPath && <Footer /> }
     </div>
   )
 }
