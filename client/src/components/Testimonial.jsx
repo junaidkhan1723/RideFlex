@@ -58,8 +58,7 @@ const Testimonial = () => {
               {Array(5)
                 .fill(0)
                 .map((_, index) => (
-                    <img key={index} src={assets.star_icon} alt="star icons"/>
-                  
+                  <img key={index} src={assets.star_icon} alt="star icons" />
                 ))}
             </div>
             <p className="text-text-muted max-w-90 mt-4 font-light">
