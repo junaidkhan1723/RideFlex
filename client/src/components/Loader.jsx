@@ -2,7 +2,7 @@ import React from "react";
 
 const Loader = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white px-4">
+    <div className="flex items-center justify-center h-screen bg-white px-4">
       <div className="flex flex-col items-center relative">
         
         {/* Animated Car */}

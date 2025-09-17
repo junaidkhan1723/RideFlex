@@ -12,17 +12,24 @@
     transform: translateX(-115px);
   }
 
+   0%{
+    opacity: 0;
+   }
+
+   15%{
+      opacity: 0;
+   }
    70% {
     opacity: 1;
   }
   100% {
-    transform: translateX(115px);
+    transform: translateX(145px);
     opacity: 0;
   }
 }
 
 .animate-car-drive {
-  animation: carDrive 1.5s linear infinite;
+  animation: carDrive 2s linear infinite;
 }
 
 

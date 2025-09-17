@@ -51,7 +51,7 @@ const Testimonial = () => {
               />
               <div>
                 <p className="text-xl">{testimonial.name}</p>
-                <p className="text-text-muted">{testimonial.location}</p>
+                <p className="text-text-muted">{testimonial.address}</p>
               </div>
             </div>
             <div className="flex items-center gap-1 mt-4">
