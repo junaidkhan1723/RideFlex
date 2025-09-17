@@ -10,7 +10,6 @@ const CarDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate small delay to show loader (optional)
     const timer = setTimeout(() => {
       const foundCar = dummyCarData.find((c) => String(c._id) === String(id));
       setCar(foundCar || null);
@@ -47,27 +46,40 @@ const CarDetails = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           {/** Vehicle details */}
           <div className="lg:col-span-2">
-            <img src={car.image} alt="" className="w-full h-auto md:max-h-100 object-cover rounded-xl mb-6 shadow-md"/>
+            <img
+              src={car.image}
+              alt=""
+              className="w-full h-auto md:max-h-100 object-cover rounded-xl mb-6 shadow-md"
+            />
             <div className="space-y-6">
               <div className="">
-                <h1 className="text-3xl font-bold">{car.brand} {car.model}</h1>
-                <p className="text-text-muted text-lg">{car.category} {car.year}</p>
+                <h1 className="text-3xl font-bold">
+                  {car.brand} {car.model}
+                </h1>
+                <p className="text-text-muted text-lg">
+                  {car.category} {car.year}
+                </p>
               </div>
-              <hr className="border-border my-6"/>
+              <hr className="border-border my-6" />
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {[
-                    {icon: assets.users_icon, text: `${car.seating_capacity} Seats`},
-                    {icon: assets.fuel_icon, text: car.fuel_type},
-                    {icon: assets.car_icon, text: car.transmission},
-                    {icon: assets.location_icon, text: car.location},
-
-                  ].map(({icon, text})=>{
-                    <div key={text} className="flex flex-col items-center bg-bg-light p-4 rounded-lg">
-                      <img src={icon} alt="" className="h-5 mb-2 "/>
-                      {text}
-                       </div>
-                  })}
+                {[
+                  {
+                    icon: assets.users_icon,
+                    text: `${car.seating_capacity} Seats`,
+                  },
+                  { icon: assets.fuel_icon, text: car.fuel_type },
+                  { icon: assets.car_icon, text: car.transmission },
+                  { icon: assets.location_icon, text: car.location },
+                ].map(({ icon, text }) => {
+                  <div
+                    key={text}
+                    className="flex flex-col items-center bg-bg-light p-4 rounded-lg"
+                  >
+                    <img src={icon} alt="" className="h-5 mb-2 " />
+                    {text}
+                  </div>;
+                })}
               </div>
 
               {/** description */}
@@ -79,9 +91,7 @@ const CarDetails = () => {
           </div>
 
           {/** booking form */}
-          <form action="">
-
-          </form>
+          <form action=""></form>
         </div>
       </div>
     );
