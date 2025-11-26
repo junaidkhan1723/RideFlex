@@ -27,7 +27,7 @@ const ColorPreview = () => {
   return (
     <div className="min-h-screen p-8" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">🎨 Theme Color Preview</h1>
+        <h1 className="text-3xl font-bold">Theme Color Preview</h1>
         <button
           className="px-4 py-2 rounded shadow border"
           style={{
