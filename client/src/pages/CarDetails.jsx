@@ -66,7 +66,7 @@ const CarDetails = () => {
           <img
             src={car.image}
             alt={car.brand}
-            className="w-full h-auto md:max-h-100 object-cover rounded-xl mb-6 shadow-md"
+            className="w-full h-auto md:max-h-100 object-cover rounded-md mb-6 shadow-md"
           />
           <div className="space-y-6">
             <div>
@@ -103,6 +103,22 @@ const CarDetails = () => {
             <div>
               <h1 className="text-xl font-medium mb-3">Description</h1>
               <p className="text-text-muted">{car.description}</p>
+            </div>
+
+            {/** Features  */}
+
+            <div>
+                   <h1 className="text-xl font-medium mb-3">Features</h1>
+         <ul className=" grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {
+            ["360 Camera" , "Bluetooth", "GPS", "Heated Seats", "Rear Views Mirror"].map((item)=> (
+              <li key={item} className="flex items-center text-text">
+                <img src={assets.check_icon} alt=""  className="h-4 m-2"/>
+                {item}
+              </li>
+            ))
+          }
+         </ul>
             </div>
           </div>
         </div>
