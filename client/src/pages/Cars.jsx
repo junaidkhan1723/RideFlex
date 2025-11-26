@@ -13,7 +13,7 @@ const Cars = () => {
           subTitle="Browse our selection of premium vehicles available for your next adventure"
         />
 
-        <div className="flex items-center bg-bg px-4 mt-6 max-w-140 w-full h-12 rounded-full shadow">
+        <div className="flex items-center bg-bg px-4 mt-6 max-w-140 w-full h-12 rounded-full shadow shadow-border-muted">
           <img src={assets.search_icon} className="w-4.5 h-4.5 mr-2" />
           <input
             onClick={(e) => setInput(e.target.value)}
