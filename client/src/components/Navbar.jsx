@@ -35,7 +35,7 @@ const Navbar = ({ isLightMode, setIsLightMode, setShowLogin }) => {
 
   return (
     <>
-      <div className="relative flex items-center justify-between mb-2 px-6 md:px-16 lg:px-24 xl:px-32 py-4 bg-bg-dark text-text border-b border-border-muted transition-all z-50">
+      <div className="relative flex items-center justify-between  px-6 md:px-16 lg:px-24 xl:px-32 py-4 bg-bg-dark text-text border-b border-border-muted transition-all z-50">
         <span className='flex cursor-pointer'>
           <img src={assets.Favicon} alt="logo" className="sm:h-8 h-5 mt-1" />
           <span className='text-xl sm:text-3xl font-semibold ms-2 cursor-pointer'>
