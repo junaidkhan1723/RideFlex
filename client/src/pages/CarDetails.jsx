@@ -8,10 +8,19 @@ const CarDetails = () => {
   const navigate = useNavigate();
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
+  const currency = import.meta.env.VITE_CURRENCY;
+  const [pickupDate, setPickupDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const foundCar = dummyCarData.find((car) => String(car._id) === String(id));
+      const foundCar = dummyCarData.find(
+        (car) => String(car._id) === String(id)
+      );
       setCar(foundCar || null);
       setLoading(false);
     }, 300);
@@ -108,23 +117,82 @@ const CarDetails = () => {
             {/** Features  */}
 
             <div>
-                   <h1 className="text-xl font-medium mb-3">Features</h1>
-         <ul className=" grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {
-            ["360 Camera" , "Bluetooth", "GPS", "Heated Seats", "Rear Views Mirror"].map((item)=> (
-              <li key={item} className="flex items-center text-text">
-                <img src={assets.check_icon} alt=""  className="h-4 m-2"/>
-                {item}
-              </li>
-            ))
-          }
-         </ul>
+              <h1 className="text-xl font-medium mb-3">Features</h1>
+              <ul className=" grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {[
+                  "360 Camera",
+                  "Bluetooth",
+                  "GPS",
+                  "Heated Seats",
+                  "Rear Views Mirror",
+                ].map((item) => (
+                  <li key={item} className="flex items-center text-text">
+                    <img src={assets.check_icon} alt="" className="h-4 m-2" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
 
         {/** booking form */}
-        <form action=""></form>
+        <form
+          onSubmit={handleSubmit}
+          className="shadow-lg h-max sticky top-18 rounded-xl p-6 space-y-6 text-text"
+          action=""
+        >
+          <p className="flex items-center justify-between text-2xl text-text font-semibold ">
+            {currency} {car.pricePerDay}{" "}
+            <span className="text-base text-text-muted font-normal">
+              per day
+            </span>
+          </p>
+          <hr className="border-border my-6" />
+
+          {/* Pickup Date */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="pickup-date">Pickup Date</label>
+            <input
+              type="date"
+              id="pickup-date"
+              className="border border-border px-3 py-2 rounded-lg"
+              min={new Date().toISOString().split("T")[0]}
+              value={pickupDate}
+              onChange={(e) => {
+                setPickupDate(e.target.value);
+
+                // Automatically adjust return date if it's invalid
+                if (returnDate && e.target.value > returnDate) {
+                  setReturnDate(e.target.value);
+                }
+              }}
+              required
+            />
+          </div>
+
+          {/* Return Date */}
+          <div className="flex flex-col gap-2">
+            <label htmlFor="return-date">Return Date</label>
+            <input
+              type="date"
+              id="return-date"
+              className="border border-border px-3 py-2 rounded-lg"
+              min={pickupDate || new Date().toISOString().split("T")[0]}
+              value={returnDate}
+              onChange={(e) => setReturnDate(e.target.value)}
+              required
+            />
+          </div>
+
+          <button className="w-full bg-primary hover:bg-info transition-all py-3 font-medium text-text rounded-lg cursor-pointer">
+            Book Now
+          </button>
+          <p className="text-text-muted text-center text-sm">
+            {" "}
+            No credit card required to reserve
+          </p>
+        </form>
       </div>
     </div>
   );
