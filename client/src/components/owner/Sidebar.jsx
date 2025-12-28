@@ -40,7 +40,7 @@ const Sidebar = () => {
       </div>
       {image && (
         <button
-          className="absolute top-0 right-0 flex p-2 gap-1 bg-primary/10 text-primary cursor-pointer"
+          className="absolute top-0 right-0 flex p-2 gap-1 bg-primary/10 text-primary cursor-pointer "
           onClick={updateImage}
         >
           Save <img src={assets.check_icon} width={13} alt="" />
@@ -54,7 +54,7 @@ const Sidebar = () => {
             to={link.path}
             className={`relative flex items-center gap-2 w-full py-3 pl-4 first:mt-6 ${
               link.path === location.pathname
-                ? "bg-primary/10 text-primary"
+                ? "bg-primary/10 text-primary sm:border-e-4 border-e-2"
                 : "text-text"
             }`}
           >
